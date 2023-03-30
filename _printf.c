@@ -1,16 +1,23 @@
 #include "main.h"
 
+/**
+ * _printf - name functions
+ * @format: pointer of what is sent in the main
+ *
+ * Return: Number of printed characters
+ */
+
 int _printf(const char *format, ...)
 {
 	va_list p;
 	unsigned int i, j;
 
-	types typelist[] = { 
+	types typelist[] = {
 		{'c', charsp},
 		{'s', strsp},
 		{'\0', NULL}
 	};
-	va_start(p,format);
+	va_start(p, format);
 
 	for (i = 0; format[i] != '\0'; i++)
 	{
@@ -25,7 +32,6 @@ int _printf(const char *format, ...)
 					break;
 				}
 			}
-				
 		}
 		else
 		{
@@ -33,5 +39,5 @@ int _printf(const char *format, ...)
 		}
 	}
 	va_end(p);
-	return (0);	
+	return (0);
 }

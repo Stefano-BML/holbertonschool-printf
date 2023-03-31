@@ -26,7 +26,6 @@ int _printf(const char *format, ...)
 			{
 				_putchar(format[i + 1]);
 				i++;
-				x++;
 			}
 			else
 			{

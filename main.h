@@ -17,11 +17,11 @@
 typedef struct sp
 {
 	char type;
-	void (*f)(va_list *);
+	void (*f)(va_list *, unsigned int *);
 } types;
 
 int _putchar(char c);
 int _printf(const char *format, ...);
-void charsp(va_list *p);
-void strsp(va_list *p);
+void charsp(va_list *p, unsigned int *x);
+void strsp(va_list *p, unsigned int *x);
 #endif

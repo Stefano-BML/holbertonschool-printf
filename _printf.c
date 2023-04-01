@@ -29,18 +29,24 @@ int _printf(const char *format, ...)
 				i++;
 				x++;
 			}
-			for (j = 0; typelist[j].type != '\0'; j++)
+			else
 			{
-				if (format[i + 1] == typelist[j].type)
+				for (j = 0; typelist[j].type != '\0'; j++)
 				{
-					(*typelist[j].f)(&p, &x);
-					i++;
-					break;
+					if (format[i + 1] == typelist[j].type)
+					{
+						(*typelist[j].f)(&p, &x);
+						i++;
+						break;
+					}
 				}
 			}
 		}
-		_putchar(format[i]);
-		x++;
+		else
+		{
+			_putchar(format[i]);
+			x++;
+		}
 	}
 	va_end(p);
 	return (x);

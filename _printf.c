@@ -39,6 +39,8 @@ int _printf(const char *format, ...)
 	types typelist[] = {
 		{'c', charsp},
 		{'s', strsp},
+		{'d', intsp},
+		{'i', intsp},
 		{'\0', NULL}
 	};
 

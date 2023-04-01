@@ -47,3 +47,21 @@ void strsp(va_list *p, unsigned int *x)
 		*(x) = *(x) + i;
 	}
 }
+
+/**
+ * intsp - Imprime un número entero.
+ * @p: Lista de argumentos.
+ * @x: Puntero a la cantidad de caracteres impresos.
+ *
+ * Return: Void.
+ */
+
+void intsp(va_list *p, unsigned int *x)
+{
+	int n;
+
+	n = va_arg(*p, int);
+	print_number(n);
+	*x += num_len(n);
+}
+

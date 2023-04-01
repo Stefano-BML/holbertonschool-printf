@@ -29,16 +29,13 @@ int _printf(const char *format, ...)
 				i++;
 				x++;
 			}
-			else
+			for (j = 0; typelist[j].type != '\0'; j++)
 			{
-				for (j = 0; typelist[j].type != '\0'; j++)
+				if (format[i + 1] == typelist[j].type)
 				{
-					if (format[i + 1] == typelist[j].type)
-					{
-						(*typelist[j].f)(&p, &x);
-						i++;
-						break;
-					}
+					(*typelist[j].f)(&p, &x);
+					i++;
+					break;
 				}
 			}
 		}

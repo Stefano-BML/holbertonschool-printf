@@ -1,4 +1,31 @@
 #include "main.h"
+
+void especificador(const char *format, unsigned int *i,
+		unsigned int *x, int *flag, types typelist[], va_list *p)
+{
+	int j;
+
+	if (format[*i + 1] == '%')
+	{
+		_putchar(format[*i + 1]);
+		*i = *i + 1;
+		*x = *x + 1;
+		*flag = 1;
+	}
+	else
+	{
+		for (j = 0; typelist[j].type != '\0'; j++)
+		{
+			if (format[*i + 1] == typelist[j].type)
+			{
+				(*typelist[j].f)(p, x);
+				*i = *i + 1;
+				*flag = 1;
+				break;
+			}
+		}
+	}
+}
 /**
  * _printf - name functions
  * @format: pointer of what is sent in the main
@@ -7,7 +34,8 @@
 int _printf(const char *format, ...)
 {
 	va_list p;
-	unsigned int i, j, x = 0;
+	unsigned int i, x = 0;
+	int flag = 0;
 	types typelist[] = {
 		{'c', charsp},
 		{'s', strsp},
@@ -23,20 +51,13 @@ int _printf(const char *format, ...)
 		{
 			if (format[i + 1] == '\0')
 				return (-1);
-			if (format[i + 1] == '%')
+
+			especificador(format, &i, &x, &flag, typelist, &p);
+
+			if (flag == 0)
 			{
-				_putchar(format[i + 1]);
-				i++;
+				_putchar(format[i]);
 				x++;
-			}
-			for (j = 0; typelist[j].type != '\0'; j++)
-			{
-				if (format[i + 1] == typelist[j].type)
-				{
-					(*typelist[j].f)(&p, &x);
-					i++;
-					break;
-				}
 			}
 		}
 		else

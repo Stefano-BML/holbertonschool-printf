@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdio.h>
+#include <unistd.h>
 
 /**
  * charsp - print the character
@@ -32,9 +33,17 @@ void strsp(va_list *p, unsigned int *x)
 	int i;
 
 	s = va_arg(*(p), char *);
-	for (i = 0; s[i] != '\0'; i++)
+	if (s == NULL)
 	{
-		_putchar(s[i]);
+		write(1, "(null)", 6);
+		*(x) = *(x) + 6;
 	}
-	*(x) = *(x) + i;
+	else
+	{
+		for (i = 0; s[i] != '\0'; i++)
+		{
+			_putchar(s[i]);
+		}
+		*(x) = *(x) + i;
+	}
 }

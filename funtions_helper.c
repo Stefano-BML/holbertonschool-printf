@@ -2,8 +2,8 @@
 #include "main.h"
 
 /**
- * print_number - Imprime un número entero.
- * @n: El número a imprimir.
+ * print_number - prints an integer
+ * @n: the number to print
  *
  * Return: Void.
  */
@@ -30,10 +30,10 @@ void print_number(int n)
 }
 
 /**
- * num_len - Obtiene la longitud de un número entero.
- * @n: El número del cual se desea obtener la longitud.
+ * num_len - gets the length of the integer
+ * @n: the number to be required the length
  *
- * Return: La longitud del número.
+ * Return: the length of the book.
  */
 
 unsigned int num_len(int n)

@@ -1,5 +1,11 @@
 #include "main.h"
 
+/**
+ * especificador - auxiliary function that tests if 
+ * 			the module or if it is in the argument list
+ * Return: void
+ */
+
 void especificador(const char *format, unsigned int *i,
 		unsigned int *x, int *flag, types typelist[], va_list *p)
 {

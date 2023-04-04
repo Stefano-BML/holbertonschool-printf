@@ -49,9 +49,9 @@ void strsp(va_list *p, unsigned int *x)
 }
 
 /**
- * intsp - Imprime un número entero.
- * @p: Lista de argumentos.
- * @x: Puntero a la cantidad de caracteres impresos.
+ * intsp - prints an integer.
+ * @p: list of arguments.
+ * @x: pointer to the number of numbers printed
  *
  * Return: Void.
  */
